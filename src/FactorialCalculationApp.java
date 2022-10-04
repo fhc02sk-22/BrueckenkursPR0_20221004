@@ -16,14 +16,32 @@ public class FactorialCalculationApp {
         int number = scanner.nextInt();
 
         System.out.println(number + "! = " + calculateFactorialNumber(number));
+        System.out.println(number + "! = (for) " + calculateFactorialNumberForLoop(number));
     }
 
     public static long calculateFactorialNumber(int value) {
 
-        if (value < 2){
-            return 1;
+        long result = 1;
+        // 5! = ((((1 * 1) * 2) * 3) * 4) * 5
+        // 1 ... value
+
+        int number = 1;
+        while (number <= value) {
+
+            result = result * number;
+            number++;
         }
 
-        return 0;
+        return result;
+    }
+
+    public static long calculateFactorialNumberForLoop(int value) {
+        long result = 1;
+
+        for (int number = 1; number <= value; number++){
+            result = result * number;
+        }
+
+        return result;
     }
 }
